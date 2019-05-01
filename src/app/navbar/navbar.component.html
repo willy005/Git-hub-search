@@ -1,0 +1,68 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Github search</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" [(ngModel)]="username" name="username" (keyup)="findProfile()" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" >Search</button>
+    </form>
+  </div>
+</nav>
+  <div *ngIf="profile">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        {{profile.name}} <small>({{profile.login}})</small>
+        <span *ngIf="profile.company">, works for {{profile.company}}</span>
+        {{profile.location}}
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-sm-5">
+
+            <img src="{{profile.avatar_url}}" class="img-circle img-responsive" alt="Profile Picture">
+        </div>
+
+        <div class="col-sm-4">
+          <ul class="list-group">
+            <li class="list-group-items" *ngIf="profile.bio">{{profile.bio}}</li>
+            <li class="list-group-items" *ngIf="profile.hireable">{{profile.hireable}}</li>
+            <li class="list-group-items" *ngIf="profile.blog"><a href="{{profile.blog}}" target="_blank">{{profile.blog}}</a></li>
+            <li class="list-group-items" *ngIf="profile.email"><a href="{{profile.email}}" target="_blank">{{profile.email}}</a></li>
+            </ul>
+            </div>
+            <div class="col-sm-3">
+              <div>
+                <p>
+                  <span class="label label-default">Followers:{{profile.followers}}.</span>
+                  <span class="label label-default">Following:{{profile.followers}}.</span>
+                  <span class="label label-default">Public gists:{{profile.followers}}.</span>
+                  <span class="label label-default">Public Repositories:{{profile.followers}}.</span>
+                </p>
+                <p><a href= "{{profile.html_url}}" target="_blank" class="btn btn-success btn-sm">Navigate to github profile</a></p>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Repositories</h3>
+                </div>
+                <div class="panel-body" *ngFor="let repo of repos">
+                  <p class="clearfix">
+                    {{repo.name}} <a href="{{repo.html_url}}" class="btn btn-sm btn-warning pull-right"
+                    target="_blank">Check out project</a>
+                  </p>
+                    <p>{{repo.description}}</p>
+                  </div>
+                  </div>
+                </div>
+                </div>
+              </div>
+
+            </div>
+            </div>
