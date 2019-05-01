@@ -3,13 +3,13 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.6.
 
-<!-- ## Technologies used
+## Technologies used
 1.Angular 7
 2.Bootstrap 4
 3.CSS3
 4.Font Awesome
 5.Typescript
-6.Npm -->
+6.Npm
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
